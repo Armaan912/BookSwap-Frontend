@@ -120,18 +120,11 @@ const Header = () => {
 								</li>
 							</>
 						) : (
-							<>
-								<li className="nav-item">
-									<Link to="/login" className="nav-link">
-										Sign in
-									</Link>
-								</li>
-								<li className="nav-item">
-									<Link to="/register" className="btn btn-primary btn-sm">
-										Sign up
-									</Link>
-								</li>
-							</>
+							<li className="nav-item">
+								<Link to="/login" className="btn btn-primary rounded-pill px-3">
+									Login/Register
+								</Link>
+							</li>
 						)}
 					</ul>
 				</div>
