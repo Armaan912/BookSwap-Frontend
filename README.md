@@ -1,70 +1,244 @@
-# Getting Started with Create React App
+# BookSwap Marketplace - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React.js frontend application for the BookSwap Marketplace that provides an intuitive interface for users to trade, share, and discover books.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **User Authentication**: Login/Register with JWT integration
+- **Book Management**: Add, edit, view, and delete books
+- **Image Upload**: Drag-and-drop style image upload for book covers
+- **Search & Filter**: Advanced book search with condition filtering
+- **Request System**: Send and manage book requests
+- **Dashboard**: User dashboard with statistics and recent activity
+- **Responsive Design**: Mobile-friendly Bootstrap-based UI
+- **Real-time Updates**: Dynamic data fetching and state management
 
-### `npm start`
+## 📋 Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js (v14 or higher)
+- npm or yarn
+- Backend server running (see backend README)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Installation
 
-### `npm test`
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd "Used book app/frontend"
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. **Environment Setup**
+   - Create a `.env` file in the frontend directory (optional)
+   - Add API URL if different from default:
+   ```env
+   REACT_APP_API_URL=http://localhost:5000
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. **Open your browser**
+   - Navigate to `http://localhost:3000`
+   - The app will automatically reload when you make changes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure
 
-### `npm run eject`
+```
+frontend/
+├── public/
+│   ├── index.html
+│   └── manifest.json
+├── src/
+│   ├── components/
+│   │   ├── auth/
+│   │   │   ├── Login.js
+│   │   │   └── Register.js
+│   │   ├── books/
+│   │   │   ├── AddBook.js
+│   │   │   ├── BookCard.js
+│   │   │   ├── BookDetail.js
+│   │   │   ├── BookList.js
+│   │   │   ├── EditBook.js
+│   │   │   └── MyBooks.js
+│   │   ├── layout/
+│   │   │   └── Header.js
+│   │   └── requests/
+│   │       └── RequestList.js
+│   ├── context/
+│   │   └── AuthContext.js
+│   ├── pages/
+│   │   ├── Dashboard.js
+│   │   └── Home.js
+│   ├── services/
+│   │   └── api.js
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+└── README.md
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🎨 UI Components
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pages
+- **Home**: Landing page with hero section and features
+- **Dashboard**: User dashboard with stats and recent activity
+- **Login/Register**: Authentication forms with validation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Book Components
+- **BookList**: Searchable and filterable book grid
+- **BookCard**: Individual book display with actions
+- **BookDetail**: Detailed book view with request functionality
+- **AddBook**: Form for adding new books with image upload
+- **EditBook**: Form for editing existing books
+- **MyBooks**: User's book management interface
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Request Components
+- **RequestList**: Manage sent and received book requests
 
-## Learn More
+## 🔧 Key Technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **React**: Frontend framework
+- **React Router**: Client-side routing
+- **React Hook Form**: Form handling and validation
+- **Axios**: HTTP client for API calls
+- **Bootstrap**: UI framework and styling
+- **Lucide React**: Icon library
+- **React Hot Toast**: Notification system
+- **Context API**: State management
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Features Overview
 
-### Code Splitting
+### Authentication
+- Secure login/register with form validation
+- JWT token management
+- Protected routes
+- User session persistence
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Book Management
+- Add books with title, author, condition, description
+- Upload book cover images (up to 5MB)
+- Edit existing books
+- Delete books
+- View book details
 
-### Analyzing the Bundle Size
+### Search & Discovery
+- Search books by title
+- Filter by book condition (Excellent, Good, Fair, Poor)
+- Clear search functionality
+- Debounced search for performance
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Request System
+- Send book requests with messages
+- View received requests
+- Accept/decline requests
+- Track request status
+- View sent requests
 
-### Making a Progressive Web App
+### Dashboard
+- Book statistics (My Books, Received Requests, Sent Requests)
+- Recent activity timeline
+- Quick navigation to key features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎨 UI/UX Features
 
-### Advanced Configuration
+- **Responsive Design**: Works on desktop, tablet, and mobile
+- **Modern Bootstrap UI**: Clean, professional appearance
+- **Interactive Elements**: Hover effects, smooth transitions
+- **Form Validation**: Real-time validation feedback
+- **Loading States**: Spinners and loading indicators
+- **Toast Notifications**: User feedback for actions
+- **Image Upload**: Drag-and-drop style upload interface
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔌 API Integration
 
-### Deployment
+The frontend communicates with the backend API through:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Authentication**: Login, register, profile management
+- **Books**: CRUD operations for books
+- **Requests**: Create and manage book requests
+- **File Upload**: Image upload for book covers
 
-### `npm run build` fails to minify
+## 🚀 Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `npm start`: Start development server
+- `npm build`: Build for production
+- `npm test`: Run tests (if configured)
+- `npm eject`: Eject from Create React App
+
+## 🌐 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `REACT_APP_API_URL` | Backend API URL | `http://localhost:5000` |
+
+## 🚨 Troubleshooting
+
+### Common Issues
+
+1. **API Connection Errors**
+   - Ensure backend server is running
+   - Check API URL in environment variables
+   - Verify CORS settings in backend
+
+2. **Build Errors**
+   - Clear node_modules and reinstall: `rm -rf node_modules && npm install`
+   - Check for syntax errors in components
+
+3. **Authentication Issues**
+   - Clear browser localStorage
+   - Check JWT token validity
+   - Verify user is logged in
+
+### Development Tips
+
+- Use React Developer Tools browser extension
+- Check browser console for errors
+- Use Network tab to debug API calls
+- Test on different screen sizes for responsiveness
+
+## 📦 Dependencies
+
+### Core
+- **react**: UI library
+- **react-dom**: React DOM rendering
+- **react-router-dom**: Routing
+
+### UI & Styling
+- **bootstrap**: CSS framework
+- **lucide-react**: Icons
+
+### Forms & Validation
+- **react-hook-form**: Form handling
+- **react-hot-toast**: Notifications
+
+### HTTP & State
+- **axios**: HTTP client
+- **react**: Context API for state
+
+## 🎯 Performance Optimizations
+
+- **Debounced Search**: Prevents excessive API calls
+- **Image Optimization**: Proper image sizing and formats
+- **Lazy Loading**: Components load as needed
+- **Efficient State Management**: Minimal re-renders
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
