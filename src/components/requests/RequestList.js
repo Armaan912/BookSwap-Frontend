@@ -12,6 +12,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { withBase, handleImageError } from '../../utils/imageUtils';
 
 const RequestList = () => {
   const [activeTab, setActiveTab] = useState('received');
@@ -176,10 +177,11 @@ const RequestList = () => {
                         <div className="flex-shrink-0 me-3">
                           {request.book.imagePath ? (
                             <img
-                              src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/uploads/${request.book.imagePath}`}
+                              src={withBase(request.book.imagePath)}
                               alt={request.book.title}
                               className="rounded"
                               style={{width: '80px', height: '100px', objectFit: 'cover'}}
+                              onError={(e) => handleImageError(e, request.book.title)}
                             />
                           ) : (
                             <div className="bg-light rounded d-flex align-items-center justify-content-center" style={{width: '80px', height: '100px'}}>

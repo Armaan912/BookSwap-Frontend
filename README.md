@@ -22,24 +22,29 @@ A React.js frontend application for the BookSwap Marketplace that provides an in
 ## 🛠️ Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd "Used book app/frontend"
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Environment Setup**
+
    - Create a `.env` file in the frontend directory (optional)
    - Add API URL if different from default:
+
    ```env
-   REACT_APP_API_URL=http://localhost:5000
+   REACT_APP_API_URL=https://bookswap-backend-np9d.onrender.com
    ```
 
 4. **Start the development server**
+
    ```bash
    npm start
    ```
@@ -89,11 +94,13 @@ frontend/
 ## 🎨 UI Components
 
 ### Pages
+
 - **Home**: Landing page with hero section and features
 - **Dashboard**: User dashboard with stats and recent activity
 - **Login/Register**: Authentication forms with validation
 
 ### Book Components
+
 - **BookList**: Searchable and filterable book grid
 - **BookCard**: Individual book display with actions
 - **BookDetail**: Detailed book view with request functionality
@@ -102,6 +109,7 @@ frontend/
 - **MyBooks**: User's book management interface
 
 ### Request Components
+
 - **RequestList**: Manage sent and received book requests
 
 ## 🔧 Key Technologies
@@ -118,12 +126,14 @@ frontend/
 ## 📱 Features Overview
 
 ### Authentication
+
 - Secure login/register with form validation
 - JWT token management
 - Protected routes
 - User session persistence
 
 ### Book Management
+
 - Add books with title, author, condition, description
 - Upload book cover images (up to 5MB)
 - Edit existing books
@@ -131,12 +141,14 @@ frontend/
 - View book details
 
 ### Search & Discovery
+
 - Search books by title
 - Filter by book condition (Excellent, Good, Fair, Poor)
 - Clear search functionality
 - Debounced search for performance
 
 ### Request System
+
 - Send book requests with messages
 - View received requests
 - Accept/decline requests
@@ -144,6 +156,7 @@ frontend/
 - View sent requests
 
 ### Dashboard
+
 - Book statistics (My Books, Received Requests, Sent Requests)
 - Recent activity timeline
 - Quick navigation to key features
@@ -176,20 +189,22 @@ The frontend communicates with the backend API through:
 
 ## 🌐 Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `REACT_APP_API_URL` | Backend API URL | `http://localhost:5000` |
+| Variable            | Description     | Default                                      |
+| ------------------- | --------------- | -------------------------------------------- |
+| `REACT_APP_API_URL` | Backend API URL | `https://bookswap-backend-np9d.onrender.com` |
 
 ## 🚨 Troubleshooting
 
 ### Common Issues
 
 1. **API Connection Errors**
+
    - Ensure backend server is running
    - Check API URL in environment variables
    - Verify CORS settings in backend
 
 2. **Build Errors**
+
    - Clear node_modules and reinstall: `rm -rf node_modules && npm install`
    - Check for syntax errors in components
 
@@ -208,19 +223,23 @@ The frontend communicates with the backend API through:
 ## 📦 Dependencies
 
 ### Core
+
 - **react**: UI library
 - **react-dom**: React DOM rendering
 - **react-router-dom**: Routing
 
 ### UI & Styling
+
 - **bootstrap**: CSS framework
 - **lucide-react**: Icons
 
 ### Forms & Validation
+
 - **react-hook-form**: Form handling
 - **react-hot-toast**: Notifications
 
 ### HTTP & State
+
 - **axios**: HTTP client
 - **react**: Context API for state
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, User, MapPin } from 'lucide-react';
+import { BookOpen, User } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { withBase, handleImageError } from '../../utils/imageUtils';
 
 const BookCard = ({ book }) => {
   const { user } = useAuth();
@@ -26,10 +27,11 @@ const BookCard = ({ book }) => {
       <div className="position-relative">
         {book.imagePath ? (
           <img
-            src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/uploads/${book.imagePath}`}
+            src={withBase(book.imagePath)}
             alt={book.title}
             className="card-img-top"
             style={{height: '250px', objectFit: 'cover'}}
+            onError={(e) => handleImageError(e, book.title)}
           />
         ) : (
           <div className="d-flex align-items-center justify-content-center bg-light" style={{height: '250px'}}>

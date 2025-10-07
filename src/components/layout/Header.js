@@ -7,9 +7,7 @@ import {
 	LogOut,
 	Menu,
 	X,
-	Plus,
-	Bell,
-	Settings
+	Bell
 } from "lucide-react";
 
 const Header = () => {

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { booksAPI } from '../../services/api';
-import { Upload, X, ArrowLeft } from 'lucide-react';
+import { Upload, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
+import { withBase, handleImageError } from '../../utils/imageUtils';
 
 const EditBook = () => {
   const { id } = useParams();
@@ -13,9 +14,9 @@ const EditBook = () => {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [book, setBook] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const [removeImageFlag, setRemoveImageFlag] = useState(false);
 
   useEffect(() => {
     fetchBook();
@@ -34,7 +35,6 @@ const EditBook = () => {
         return;
       }
       
-      setBook(bookData);
       
       // Set form values
       setValue('title', bookData.title);
@@ -44,7 +44,7 @@ const EditBook = () => {
       
       // Set image preview if exists
       if (bookData.imagePath) {
-        setImagePreview(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/uploads/${bookData.imagePath}`);
+        setImagePreview(withBase(bookData.imagePath));
       }
     } catch (error) {
       console.error('Error fetching book:', error);
@@ -65,6 +65,7 @@ const EditBook = () => {
       }
       
       setSelectedFile(file);
+      setRemoveImageFlag(false); // Reset remove flag when new image is selected
       
       // Create preview
       const reader = new FileReader();
@@ -78,6 +79,7 @@ const EditBook = () => {
   const removeImage = () => {
     setSelectedFile(null);
     setImagePreview(null);
+    setRemoveImageFlag(true);
   };
 
   const onSubmit = async (data) => {
@@ -91,6 +93,8 @@ const EditBook = () => {
       
       if (selectedFile) {
         formData.append('image', selectedFile);
+      } else if (removeImageFlag) {
+        formData.append('removeImage', 'true');
       }
 
       await booksAPI.updateBook(id, formData);

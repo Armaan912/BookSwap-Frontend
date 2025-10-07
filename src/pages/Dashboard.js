@@ -7,7 +7,6 @@ import {
   Inbox, 
   Send, 
   TrendingUp,
-  User,
   Plus
 } from 'lucide-react';
 import toast from 'react-hot-toast';

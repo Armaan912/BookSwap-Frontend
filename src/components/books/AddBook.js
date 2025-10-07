@@ -14,11 +14,8 @@ const AddBook = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
-    watch
+    setValue
   } = useForm();
-
-  const selectedFile = watch('image');
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];

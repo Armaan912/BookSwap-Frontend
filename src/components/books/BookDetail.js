@@ -13,6 +13,7 @@ import {
   Inbox
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { withBase, handleImageError } from '../../utils/imageUtils';
 
 const BookDetail = () => {
   const { id } = useParams();
@@ -163,10 +164,11 @@ const BookDetail = () => {
           <div className="col-md-4">
             {book.imagePath ? (
               <img
-                src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/uploads/${book.imagePath}`}
+                src={withBase(book.imagePath)}
                 alt={book.title}
                 className="img-fluid rounded-start h-100"
                 style={{objectFit: 'cover', minHeight: '400px'}}
+                onError={(e) => handleImageError(e, book.title)}
               />
             ) : (
               <div className="d-flex align-items-center justify-content-center bg-light rounded-start" style={{minHeight: '400px'}}>

@@ -12,6 +12,7 @@ import {
   XCircle
 } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { withBase, handleImageError } from '../../utils/imageUtils';
 
 const MyBooks = () => {
   const [books, setBooks] = useState([]);
@@ -119,10 +120,11 @@ const MyBooks = () => {
                 <div className="position-relative">
                   {book.imagePath ? (
                     <img
-                      src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/uploads/${book.imagePath}`}
+                      src={withBase(book.imagePath)}
                       alt={book.title}
                       className="card-img-top"
                       style={{height: '250px', objectFit: 'cover'}}
+                      onError={(e) => handleImageError(e, book.title)}
                     />
                   ) : (
                     <div className="d-flex align-items-center justify-content-center bg-light" style={{height: '250px'}}>
